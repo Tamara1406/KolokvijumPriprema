@@ -1,7 +1,10 @@
 package rs.np.maksimovic_tamara.sistemske_operacije;
 
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+
+import com.google.gson.Gson;
 
 import rs.np.maksimovic_tamara.domenske_klase.Skije;
 
@@ -40,6 +43,25 @@ public class DefaultSkiProdavnica implements SkiProdavnica {
 	@Override
 	public List<Skije> vratiSveSkije() {
 		return sveSkije;
+	}
+
+	
+	@Override
+	public String serijalizujJSON() {
+		Gson gson = new Gson();
+		return gson.toJson(sveSkije);
+	}
+	
+
+	@Override
+	public void deserijalizujJSON(String adresa) {
+		try(FileReader in = new FileReader(adresa)) {
+			Gson gson = new Gson();
+			Skije s = gson.fromJson(in, Skije.class);
+			nabaviSkije(s);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }

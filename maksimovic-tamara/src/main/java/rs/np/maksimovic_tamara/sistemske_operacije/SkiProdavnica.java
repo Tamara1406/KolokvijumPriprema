@@ -12,4 +12,7 @@ public interface SkiProdavnica {
 	
 	public List<Skije> vratiSveSkije();
 
+	public String serijalizujJSON();
+	
+	public void deserijalizujJSON( String adresa);
 }
