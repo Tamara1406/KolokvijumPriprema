@@ -7,9 +7,16 @@ import java.util.List;
 import com.google.gson.Gson;
 
 import rs.np.maksimovic_tamara.domenske_klase.Skije;
-
+/**
+ * Implementira interfejs SkiProdavnica i predstavlja ski prodavnicu koja prodaje i iznajmljuje skije
+ * 
+ * @author Tamara Maksimovic
+ *
+ */
 public class DefaultSkiProdavnica implements SkiProdavnica {
-	
+	/**
+	 * Lista skija koje se nalaze u prodavnici
+	 */
 	private List<Skije> sveSkije = new ArrayList<Skije>();
 
 	@Override
